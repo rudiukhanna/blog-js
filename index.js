@@ -1,30 +1,36 @@
 const API_URL = 'https://gorest.co.in/public/v2/users';
+const API_URL_Posts = 'https://gorest.co.in/public/v2/posts';
 
-const userList = document.getElementById('user-list');
+const usersContainer = document.getElementById('users-container');
 
-/*<div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action">A simple default list group item</a>
+function createUser(user) {
 
-  <a href="#" class="list-group-item list-group-item-action list-group-item-primary">A simple primary list group item</a>
-  <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">A simple secondary list group item</a>
-  <a href="#" class="list-group-item list-group-item-action list-group-item-success">A simple success list group item</a>
-  <a href="#" class="list-group-item list-group-item-action list-group-item-danger">A simple danger list group item</a>
-  <a href="#" class="list-group-item list-group-item-action list-group-item-warning">A simple warning list group item</a>
-  <a href="#" class="list-group-item list-group-item-action list-group-item-info">A simple info list group item</a>
-  <a href="#" class="list-group-item list-group-item-action list-group-item-light">A simple light list group item</a>
-  <a href="#" class="list-group-item list-group-item-action list-group-item-dark">A simple dark list group item</a>
-</div>
-*/
+    const name = document.createElement('a');
+    name.classList.add('list-group-item', 'list-group-item-action', 'list-group-item-primary');
+    name.href = `posts.html?id=${user.id}`;
+    name.innerText = `${user.name}`;
+    name.style.border ='1px solid';
+    name.style.width ='250px';
 
-
-
-
+    console.log(user.name)
+    usersContainer.appendChild(name);
+ 
+    return name;
+}
 
 
 function getUsers() {
-    return fetch(API_URL)
-    .then(response => response.json())
-    .then((data) => console.log(data))
+   return fetch(API_URL) 
+   .then(response => response.json())
+   .then((data) => {
+    data.forEach(user => {
+        const userList = createUser(user);
+        usersContainer.appendChild(userList);
+    })
+   })
 }
 
 getUsers();
+
+
+
