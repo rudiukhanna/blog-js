@@ -1,4 +1,4 @@
-const API_URL = 'https://gorest.co.in/public/v2/users1';
+const API_URL = 'https://gorest.co.in/public/v2/users';
 
 const usersContainer = document.getElementById('users-container');
 
@@ -6,12 +6,11 @@ function createUser(user) {
 
     const name = document.createElement('a');
     name.classList.add('list-group-item', 'list-group-item-action', 'list-group-item-primary');
-    name.href = `posts.html?id=${user.id}`;
+    name.href = `post-list.html?id=${user.id}`;
     name.innerText = `${user.name}`;
     name.style.border ='1px solid';
     name.style.width ='250px';
 
-    console.log(user.name)
     usersContainer.appendChild(name);
  
     return name;
