@@ -1,5 +1,4 @@
-const API_URL = 'https://gorest.co.in/public/v2/users';
-const API_URL_Posts = 'https://gorest.co.in/public/v2/posts';
+const API_URL = 'https://gorest.co.in/public/v2/users1';
 
 const usersContainer = document.getElementById('users-container');
 
@@ -18,15 +17,33 @@ function createUser(user) {
     return name;
 }
 
+function createErrorMessageBox(message) {
+    const errorMessageBox = document.createElement('div');
+    errorMessageBox.classList.add('alert', 'alert-danger');
+    errorMessageBox.innerText = message;
+
+    return errorMessageBox;
+}
+
 
 function getUsers() {
    return fetch(API_URL) 
-   .then(response => response.json())
+   .then(response => {
+    if (!response.ok) {
+        throw new Error('Користувачі не знайдені :(');
+    }
+
+    return response.json()
+   })
    .then((data) => {
     data.forEach(user => {
         const userList = createUser(user);
         usersContainer.appendChild(userList);
     })
+   })
+   .catch(error => {
+    const errorMessageBox = createErrorMessageBox(error.message);
+    usersContainer.appendChild(errorMessageBox);
    })
 }
 
