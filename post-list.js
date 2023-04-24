@@ -1,12 +1,4 @@
-/* список постів
-<ol class="list-group list-group-numbered">
-  <li class="list-group-item">A list item</li>
-  <li class="list-group-item">A list item</li>
-  <li class="list-group-item">A list item</li>
-</ol>
-*/
-
-const API_URL_Posts = 'https://gorest.co.in/public/v2/posts';
+const API_URL_Posts = 'https://gorest.co.in/public/v2/posts1';
 
 const postsContainer = document.getElementById('posts-container');
 
@@ -27,15 +19,45 @@ function createPost(post) {
     return postContainer;
 }
 
+
+function createErrorMessageBox(message) {
+    const errorMessageBox = document.createElement('div');
+    errorMessageBox.classList.add('alert', 'alert-danger');
+    errorMessageBox.innerText = message;
+
+    const linkContainer = document.createElement('div');
+
+
+    const linkBack = document.createElement('a');
+    linkBack.classList.add('list-group-item-action');
+    linkBack.innerText = 'Назад';
+    linkBack.href = 'http://127.0.0.1:5503/index.html';
+    linkContainer.appendChild(linkBack);
+    errorMessageBox.appendChild(linkContainer);
+
+    return errorMessageBox;
+}
+
+
 function getPosts() {
     return fetch(API_URL_Posts)
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('У даного користувача відсутні пости');
+        }
+    
+        return response.json()
+       })
     .then((data) => {
         data.forEach(post => {
             const postList = createPost(post);
             postsContainer.appendChild(postList);
         })
     })
+    .catch(error => {
+        const errorMessageBox = createErrorMessageBox(error.message);
+        postsContainer.appendChild(errorMessageBox);
+       })
 }
 
 getPosts()
