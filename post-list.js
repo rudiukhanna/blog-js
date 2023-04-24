@@ -1,4 +1,4 @@
-const API_URL_Posts = 'https://gorest.co.in/public/v2/posts1';
+const API_URL_Posts = 'https://gorest.co.in/public/v2/posts';
 
 const postsContainer = document.getElementById('posts-container');
 
@@ -7,7 +7,7 @@ function createPost(post) {
    
     const postTitle  = document.createElement('a');
     postTitle.classList.add('list-group-item-action');
-    postTitle.href = `post.html?id=${post.body}`;
+    postTitle.href = `post.html?id=${post.id}`;
     postTitle.innerText = `${post.title}`;
     postTitle.style.fontWeight = 'bold';
     postContainer.appendChild(postTitle);
