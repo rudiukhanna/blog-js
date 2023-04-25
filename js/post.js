@@ -30,11 +30,18 @@ async function getPost() {
 getPost();
 
 function createComment(comment) {
-
     const comName = document.createElement('li');
-    comName.innerHTML = `${comment.name}<br>${comment.body}`;
+    comName.classList.add('border', 'border-success');
+   
+    const userName = document.createElement('span'); 
+    userName.textContent = comment.name;
+    userName.style.fontWeight = 'bold'; 
 
-    commentsList.appendChild(comName);
+    comName.appendChild(userName);
+
+    comName.innerHTML += `<br>${comment.body}`; 
+
+    commentsList.appendChild(comName); 
 
     return comName;
 }

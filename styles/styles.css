@@ -2,20 +2,33 @@ body {
     background-color: #f2eded;
 }
 
-.page-container {
-    position: relative;
-    width: 1200px;
-    margin: auto;
-    padding: 15px 30px;
-}
-
 h1,
-h2 {
+h2,
+h5,
+h6 {
     margin: 0;
 }
 
 a {
     text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+.alert {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.page-container {
+    position: relative;
+    width: 1200px;
+    margin: auto;
+    padding: 15px 30px;
 }
 
 .logo-blog {
@@ -27,6 +40,10 @@ a {
 
 .logo {
     background-image: url('../images/pencil.png');
+}
+
+.users-container {
+    margin-bottom: 60px;
 }
 
 .users-container,
@@ -42,13 +59,20 @@ a {
     margin: 20px 0;
 }
 
-.alert {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.post-body {
+    margin: auto;
+    margin-top: 40px;
+    width: 750px;
 }
 
+.post-title {
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+
+.comments-list {
+    margin-bottom: 40px;
+}
 
 .footer {
     height: 50px;
