@@ -3,6 +3,7 @@ body {
 }
 
 .page-container {
+    position: relative;
     width: 1200px;
     margin: auto;
     padding: 15px 30px;
@@ -28,13 +29,26 @@ a {
     background-image: url('../images/pencil.png');
 }
 
-.users-container {
+.users-container,
+.posts-wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 10px;
 }
+
+.posts-wrapper {
+    margin: 20px 0;
+}
+
+.alert {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 
 .footer {
     height: 50px;

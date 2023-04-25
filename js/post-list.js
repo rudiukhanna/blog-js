@@ -4,15 +4,18 @@ const postsContainer = document.getElementById('posts-container');
 
 function createPost(post) {
     const postContainer = document.createElement('div');
+    postContainer.classList.add('border', 'border-success', 'rounded', 'bg-white','p-4')
    
     const postTitle  = document.createElement('a');
-    postTitle.classList.add('list-group-item-action');
+    postTitle.classList.add('fw-semibold', 'fs-4', 'text-dark', 'lh-1', 
+    'link-success', 'link-offset-2', 'link-underline-opacity-25', 'link-underline-opacity-100-hover',
+     );
     postTitle.href = `post.html?id=${post.id}`;
     postTitle.innerText = `${post.title}`;
-    postTitle.style.fontWeight = 'bold';
     postContainer.appendChild(postTitle);
 
     const postBody = document.createElement('p');
+    postBody.classList.add('fs-6', 'text-black-50', 'mt-3');
     postBody.innerText = `${post.body}`;
     postContainer.appendChild(postBody);
 
