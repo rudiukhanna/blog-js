@@ -31,7 +31,7 @@ getPost();
 
 function createComment(comment) {
     const comName = document.createElement('li');
-    comName.classList.add('border', 'border-success');
+    comName.classList.add('border', 'border-success', 'p-2');
    
     const userName = document.createElement('span'); 
     userName.textContent = comment.name;

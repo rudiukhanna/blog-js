@@ -74,6 +74,10 @@ li {
     margin-bottom: 40px;
 }
 
+.post-link:hover {
+    text-decoration: underline;
+}
+
 .footer {
     height: 50px;
 }
