@@ -2,17 +2,14 @@ const API_URL = 'https://gorest.co.in/public/v2/users';
 
 const usersContainer = document.getElementById('users-container');
 
-function createUser(user) {
 
+function createUser(user) {
     const name = document.createElement('a');
-    name.classList.add('list-group-item', 'list-group-item-action', 'list-group-item-primary');
+    name.classList.add('d-block','d-flex','flex-row','gap-3', 'flex-column','mb-3', 'border', 'p-2', 'text-decoration-none',
+    'text-success', 'bg-white', 'link-success', 'rounded', 'border-success');
     name.href = `post-list.html?id=${user.id}`;
     name.innerText = `${user.name}`;
-    name.style.border ='1px solid';
-    name.style.width ='250px';
 
-    usersContainer.appendChild(name);
- 
     return name;
 }
 
@@ -36,8 +33,8 @@ function getUsers() {
    })
    .then((data) => {
     data.forEach(user => {
-        const userList = createUser(user);
-        usersContainer.appendChild(userList);
+        const div = createUser(user);
+        usersContainer.appendChild(div);
     })
    })
    .catch(error => {
