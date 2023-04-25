@@ -1,0 +1,25 @@
+body {
+    background-color: #f2eded;
+}
+
+.page-container {
+    width: 1200px;
+    margin: auto;
+    padding: 15px 30px;
+}
+
+h1,
+h2 {
+    margin: 0;
+}
+
+.logo-blog {
+    padding-left: 30px;
+    background-position: left center;
+    background-size: 25px 25px;
+    background-repeat: no-repeat;   
+}
+
+.logo {
+    background-image: url('../images/pencil.png');
+}

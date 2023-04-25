@@ -1,5 +1,5 @@
 const API_URL_Posts = 'https://gorest.co.in/public/v2/posts';
-const API_URL_Comments = 'https://gorest.co.in/public/v2/comments1';
+const API_URL_Comments = 'https://gorest.co.in/public/v2/comments';
 
 const title = document.querySelector('.post-title');
 const description = document.querySelector('.post-text');
