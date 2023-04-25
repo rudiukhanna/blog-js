@@ -22,7 +22,6 @@ function createPost(post) {
     return postContainer;
 }
 
-
 function createErrorMessageBox(message) {
     const errorMessageBox = document.createElement('div');
     errorMessageBox.classList.add('alert', 'alert-danger');
@@ -30,17 +29,16 @@ function createErrorMessageBox(message) {
 
     const linkContainer = document.createElement('div');
 
-
     const linkBack = document.createElement('a');
-    linkBack.classList.add('list-group-item-action');
+    linkBack.classList.add('text-success', 'text-decoration-underline', 'm-auto');
     linkBack.innerText = 'Назад';
     linkBack.href = 'http://127.0.0.1:5503/index.html';
+
     linkContainer.appendChild(linkBack);
     errorMessageBox.appendChild(linkContainer);
-
+    
     return errorMessageBox;
 }
-
 
 function getPosts() {
     return fetch(API_URL_Posts)
