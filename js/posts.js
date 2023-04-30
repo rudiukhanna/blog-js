@@ -32,11 +32,14 @@ function renderPostDetails(postId) {
         .then(response => response.json())
         .then(post => {
             const postElement = document.createElement('div');
+            postElement.classList.add('border', 'border-success', 'rounded', 'p-2');
             const postTitle = document.createElement('a');
+            postTitle.classList.add('text-success', 'fs-4')
             postTitle.textContent = post.title;
             postTitle.href = `post.html?id=${post.id}`;
             const postBody = document.createElement('p');
             postBody.textContent = post.body;
+            postBody.classList.add('fs-6', 'text-secondary')
             postElement.appendChild(postTitle);
             postElement.appendChild(postBody);
             postsContainer.appendChild(postElement);
