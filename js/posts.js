@@ -10,13 +10,19 @@ function renderUserPosts() {
         .then(response => response.json())
         .then((data) => {
             if (data.length === 0) {
-                const backButton = document.createElement('a');
-                backButton.href = 'users.html';
-                backButton.textContent = 'Назад';
-                postsContainer.appendChild(backButton);
+                postsContainer.classList.toggle('posts-wrapper');
                 const noPostsMessage = document.createElement('p');
                 noPostsMessage.textContent = 'У даного користувача відсутні пости';
                 postsContainer.appendChild(noPostsMessage);
+
+                const div = document.createElement('div');
+                const backButton = document.createElement('a');
+                backButton.href = 'users.html';
+                backButton.textContent = 'Назад';
+                backButton.classList.add('text-success');
+                div.appendChild(backButton);
+                postsContainer.appendChild(div);
+               
               } else  {
             data.forEach(post => {
                 renderPostDetails(post.id);
